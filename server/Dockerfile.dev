@@ -1,0 +1,12 @@
+FROM golang:1.18.3
+
+ENV CGO_ENABLED 0
+ENV ROOTPATH=/go/app
+
+WORKDIR ${ROOTPATH}
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+EXPOSE 8080
+CMD ["go", "run", "src/main.go"]

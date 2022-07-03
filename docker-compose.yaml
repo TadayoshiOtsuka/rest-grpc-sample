@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  grpc_server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    tty: true
+    stdin_open: true
+    ports:
+      - 8080:8080
+    volumes:
+      - type: bind
+        source: "server/src"
+        target: "/go/app/src"
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    tty: true
+    stdin_open: true
+    ports:
+      - 3000:3000
+    volumes:
+      - type: bind
+        source: "client"
+        target: "/usr/app/src"
