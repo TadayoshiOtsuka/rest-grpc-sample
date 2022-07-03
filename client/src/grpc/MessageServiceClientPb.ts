@@ -1,5 +1,5 @@
 /**
- * @fileoverview gRPC-Web generated client stub for messenger
+ * @fileoverview gRPC-Web generated client stub for message
  * @enhanceable
  * @public
  */
@@ -13,9 +13,9 @@ import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty
 
 import {
   MessageRequest,
-  MessageResponse} from './messenger_pb';
+  MessageResponse} from './message_pb';
 
-export class MessengerClient {
+export class MessageServiceClient {
   client_: grpcWeb.AbstractClientBase;
   hostname_: string;
   credentials_: null | { [index: string]: string; };
@@ -34,7 +34,7 @@ export class MessengerClient {
     this.options_ = options;
   }
 
-  methodInfoGetMessages = new grpcWeb.AbstractClientBase.MethodInfo(
+  methodInfoGet = new grpcWeb.AbstractClientBase.MethodInfo(
     MessageResponse,
     (request: google_protobuf_empty_pb.Empty) => {
       return request.serializeBinary();
@@ -42,18 +42,18 @@ export class MessengerClient {
     MessageResponse.deserializeBinary
   );
 
-  getMessages(
+  get(
     request: google_protobuf_empty_pb.Empty,
     metadata?: grpcWeb.Metadata) {
     return this.client_.serverStreaming(
       this.hostname_ +
-        '/messenger.Messenger/GetMessages',
+        '/message.MessageService/Get',
       request,
       metadata || {},
-      this.methodInfoGetMessages);
+      this.methodInfoGet);
   }
 
-  methodInfoCreateMessage = new grpcWeb.AbstractClientBase.MethodInfo(
+  methodInfoCreate = new grpcWeb.AbstractClientBase.MethodInfo(
     MessageResponse,
     (request: MessageRequest) => {
       return request.serializeBinary();
@@ -61,17 +61,17 @@ export class MessengerClient {
     MessageResponse.deserializeBinary
   );
 
-  createMessage(
+  create(
     request: MessageRequest,
     metadata: grpcWeb.Metadata | null,
     callback: (err: grpcWeb.Error,
                response: MessageResponse) => void) {
     return this.client_.rpcCall(
       this.hostname_ +
-        '/messenger.Messenger/CreateMessage',
+        '/message.MessageService/Create',
       request,
       metadata || {},
-      this.methodInfoCreateMessage,
+      this.methodInfoCreate,
       callback);
   }
 
