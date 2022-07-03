@@ -1,4 +1,4 @@
-# REST-gRPC-Sample
+# REST-gRPC-Sample(WIP)
 
 setup
 
@@ -22,4 +22,12 @@ launch gen/client/server
 make up-d
 or
 docker-compose up -d
+```
+
+create AWS resources
+
+```
+cd terraform/env/sandbox
+make plan
+make apply
 ```
