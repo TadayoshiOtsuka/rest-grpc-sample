@@ -3,8 +3,8 @@ version: "3.8"
 services:
   gen:
     build:
-      context: .
-      dockerfile: ./proto/Dockerfile
+      context: ./proto
+      dockerfile: Dockerfile
     command: ./proto/gen.sh
     volumes:
       - type: bind
