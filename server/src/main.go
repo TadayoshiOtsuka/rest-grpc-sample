@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/TadayoshiOtsuka/rest-grpc-sample/src/infra/handler"
+	"github.com/TadayoshiOtsuka/rest-grpc-sample/src/infra/handlers"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
@@ -18,7 +18,7 @@ func main() {
 	}
 
 	server := grpc.NewServer()
-	handler.RegisterMessageServer(server)
+	handlers.RegisterMessageServer(server)
 	reflection.Register(server)
 
 	err = server.Serve(listener)

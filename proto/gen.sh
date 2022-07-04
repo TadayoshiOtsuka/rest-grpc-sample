@@ -2,7 +2,7 @@
 
 set -xe
 
-SERVER_OUTPUT_DIR=server/src/grpc
+SERVER_OUTPUT_DIR=server/src/infra/grpc
 CLIENT_OUTPUT_DIR=client/src/grpc
 
 protoc --version

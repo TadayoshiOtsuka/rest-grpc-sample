@@ -1,9 +1,9 @@
-package handler
+package handlers
 
 import (
 	"context"
 
-	"github.com/TadayoshiOtsuka/rest-grpc-sample/src/grpc/message"
+	"github.com/TadayoshiOtsuka/rest-grpc-sample/src/infra/grpc/message"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
